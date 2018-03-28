@@ -2,6 +2,7 @@ let main = document.createElement('main');
 main.classList.add('container');
 let table = document.createElement('table');
 table.classList.add('table');
+table.classList.add('striped');
 let thead = document.createElement('thead');
 let th1   = document.createElement('th');
 th1.innerHTML = "nome";
@@ -42,47 +43,19 @@ xmlhttp.send();
 
 const renderContent = (data) =>{
     let obj = data.results;
-    for(i=0; i < obj.length; i++){
+    obj.forEach(people =>{
         let tr = document.createElement('tr');    
         let tdNome = document.createElement('td');    
-        tdNome.innerHTML = obj[i].name;
+        tdNome.innerHTML = people.name;
         let tdAltura = document.createElement('td');    
-        tdAltura.innerHTML = obj[i].height;
+        tdAltura.innerHTML = people.height;
         let tdPeso = document.createElement('td');    
-        tdPeso.innerHTML = obj[i].mass;
+        tdPeso.innerHTML = people.mass;
 
         tbody.appendChild(tr);
         tr.appendChild(tdNome);
         tr.appendChild(tdAltura);
         tr.appendChild(tdPeso);
-    }
-    console.log(obj);
+    });
+        
 }
-
-
-
-// const x = (y,z) =>{
-//     return y * z;
-// }
-// console.log(x(2,6));
-
-// //calcular área do quadrado
-// const areaQuadrado = (b, h) =>{
-//     return b * h;
-// }
-// console.log(areaQuadrado(4,4));
-
-// const calculaPerimetro = (l1,l2,l3,l4) =>{
-//     return l1 + l2 + l3 + l4;
-// }
-
-// console.log(calculaPerimetro(4,5,2,9));
-
-
-
-// //área do triângulo
-// const areaTriangulo = (b, h) =>{
-//     let area = (b * h) / 2;
-//     return area;
-// }
-// console.log(areaTriangulo(5,6));
